@@ -27,7 +27,7 @@
                                 <items>
                                     <barButtonItem title="Pick" id="WS7-a6-2C1">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="te5-CB-Uxn"/>
+                                            <action selector="pickAnImageFromAlbumButton:" destination="BYZ-38-t0r" id="vze-Ub-4yO"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -49,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="imagePickerView" destination="b9h-77-3qS" id="q6d-5b-DRR"/>
+                        <outlet property="pickAnImageFromAlbum" destination="WS7-a6-2C1" id="NZB-Lr-lYD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

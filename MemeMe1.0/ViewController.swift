@@ -13,6 +13,8 @@ UINavigationControllerDelegate  {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     
+    @IBOutlet weak var pickAnImageFromAlbum: UIBarButtonItem!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +22,42 @@ UINavigationControllerDelegate  {
     }
     
     
-    @IBAction func pickAnImage(_ sender: Any) {
+    @IBAction func pickAnImageFromAlbumButton(_ sender: UIBarButtonItem) {
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker,animated: true, completion: nil)
+
+  
+        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info [UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            imagePickerView.image = image
+            
+            dismiss(animated: true, completion: nil)
+            
+            print("Test pickAlbum")
+      }
+        
     }
+        
+}
+
+        
+
+        
+
+
+
+    
+
+    
+
+    
+    
+
 
 
 }
