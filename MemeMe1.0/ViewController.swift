@@ -12,53 +12,49 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate  {
     
     @IBOutlet weak var imagePickerView: UIImageView!
-    
+    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var pickAnImageFromAlbum: UIBarButtonItem!
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     
-    @IBAction func pickAnImageFromAlbumButton(_ sender: UIBarButtonItem) {
+    @IBAction func pickButton(_ sender: Any) {
+        
+        pickImage(UIImagePickerControllerSourceType.photoLibrary)
+    }
+    
+    
+    
+   func pickImage(_ source: UIImagePickerControllerSourceType) {
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = source
         present(imagePicker,animated: true, completion: nil)
-
-  
-        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    }
+    
+    @objc(imagePickerController:didFinishPickingMediaWithInfo:) func imagePickerController (_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info [UIImagePickerControllerOriginalImage] as? UIImage {
             
             imagePickerView.image = image
+            imagePickerView.contentMode = .scaleAspectFit
             
-            dismiss(animated: true, completion: nil)
-            
-            print("Test pickAlbum")
-      }
+        }
+        
+        dismiss(animated: true, completion: nil)
         
     }
-        
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
-        
 
-        
-
-
-
-    
-
-    
-
-    
-    
-
-
-
-}
 
