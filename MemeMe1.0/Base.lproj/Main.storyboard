@@ -25,37 +25,47 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVO-EA-VdR">
                                 <rect key="frame" x="16" y="623" width="343" height="44"/>
                                 <items>
-                                    <barButtonItem title="Pick" id="WS7-a6-2C1">
+                                    <barButtonItem tag="1" style="plain" systemItem="camera" id="WS7-a6-2C1">
                                         <connections>
-                                            <action selector="pickButton:" destination="BYZ-38-t0r" id="ZAN-Vz-ViT"/>
+                                            <action selector="pickCamera:" destination="BYZ-38-t0r" id="osJ-2k-FTV"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cZK-AY-Qwe"/>
+                                    <barButtonItem systemItem="action" id="OUj-mP-mny"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5xq-oo-JRS"/>
+                                    <barButtonItem title="Album" id="fUG-8r-2u1">
+                                        <connections>
+                                            <action selector="pickAlbum:" destination="BYZ-38-t0r" id="pko-tr-cMY"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b9h-77-3qS">
-                                <rect key="frame" x="67" y="152" width="240" height="175"/>
+                                <rect key="frame" x="16" y="20" width="343" height="603"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="b9h-77-3qS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="132" id="2Uj-2P-y2c"/>
-                            <constraint firstItem="b9h-77-3qS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="HRA-Pp-DmF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="b9h-77-3qS" secondAttribute="trailing" constant="52" id="VVL-DX-ZlC"/>
-                            <constraint firstItem="tVO-EA-VdR" firstAttribute="top" secondItem="b9h-77-3qS" secondAttribute="bottom" constant="296" id="cZM-G9-oYi"/>
-                            <constraint firstItem="tVO-EA-VdR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cl6-Zl-WNZ"/>
-                            <constraint firstItem="tVO-EA-VdR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sZO-SO-Jzy"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tVO-EA-VdR" secondAttribute="bottom" id="w50-be-Mlu"/>
+                            <constraint firstItem="tVO-EA-VdR" firstAttribute="leading" secondItem="b9h-77-3qS" secondAttribute="leading" id="2Bs-Ri-wgY"/>
+                            <constraint firstItem="b9h-77-3qS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="DNF-hM-wDZ"/>
+                            <constraint firstItem="tVO-EA-VdR" firstAttribute="trailing" secondItem="b9h-77-3qS" secondAttribute="trailing" id="OMN-HX-K2S"/>
+                            <constraint firstItem="tVO-EA-VdR" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="SUQ-2f-TPY"/>
+                            <constraint firstItem="b9h-77-3qS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aAy-Ga-ZGH"/>
+                            <constraint firstItem="b9h-77-3qS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hfr-iW-ag4"/>
+                            <constraint firstItem="b9h-77-3qS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kiv-Oa-hhi"/>
+                            <constraint firstItem="tVO-EA-VdR" firstAttribute="top" secondItem="b9h-77-3qS" secondAttribute="bottom" id="zIW-UU-fEa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="albumButton" destination="fUG-8r-2u1" id="Il9-vN-FEC"/>
+                        <outlet property="cameraButton" destination="WS7-a6-2C1" id="dUl-lT-1Jp"/>
                         <outlet property="imagePickerView" destination="b9h-77-3qS" id="q6d-5b-DRR"/>
-                        <outlet property="pickAnImageFromAlbum" destination="WS7-a6-2C1" id="NZB-Lr-lYD"/>
                         <outlet property="toolBar" destination="tVO-EA-VdR" id="dLh-4h-njw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223" y="135"/>
+            <point key="canvasLocation" x="-1065" y="57"/>
         </scene>
     </scenes>
 </document>

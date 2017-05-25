@@ -13,16 +13,25 @@ UINavigationControllerDelegate  {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var pickAnImageFromAlbum: UIBarButtonItem!
+    @IBOutlet weak var albumButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+
+    
+    @IBAction func pickCamera(_ sender: Any) {
+        
+         pickImage(UIImagePickerControllerSourceType.camera)
     }
     
     
-    @IBAction func pickButton(_ sender: Any) {
+    @IBAction func pickAlbum(_ sender: Any) {
         
         pickImage(UIImagePickerControllerSourceType.photoLibrary)
     }
@@ -37,7 +46,10 @@ UINavigationControllerDelegate  {
         present(imagePicker,animated: true, completion: nil)
     }
     
-    @objc(imagePickerController:didFinishPickingMediaWithInfo:) func imagePickerController (_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+ //   @objc(imagePickerController:didFinishPickingMediaWithInfo:)
+    
+    func imagePickerController (_ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info [UIImagePickerControllerOriginalImage] as? UIImage {
             
