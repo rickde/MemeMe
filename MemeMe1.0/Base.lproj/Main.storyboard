@@ -22,50 +22,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVO-EA-VdR">
-                                <rect key="frame" x="16" y="623" width="343" height="44"/>
-                                <items>
-                                    <barButtonItem tag="1" style="plain" systemItem="camera" id="WS7-a6-2C1">
-                                        <connections>
-                                            <action selector="pickCamera:" destination="BYZ-38-t0r" id="osJ-2k-FTV"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cZK-AY-Qwe"/>
-                                    <barButtonItem systemItem="action" id="OUj-mP-mny"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5xq-oo-JRS"/>
-                                    <barButtonItem title="Album" id="fUG-8r-2u1">
-                                        <connections>
-                                            <action selector="pickAlbum:" destination="BYZ-38-t0r" id="pko-tr-cMY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b9h-77-3qS">
-                                <rect key="frame" x="16" y="20" width="343" height="603"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qMM-TA-Ah4">
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AAg-u5-o7Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="yEv-bB-bPg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hsx-3a-yrv">
+                                        <rect key="frame" x="0.0" y="70" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0JQ-Gc-Q49"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b9h-77-3qS">
+                                        <rect key="frame" x="0.0" y="100" width="343" height="423"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="437" id="TET-mv-lhI"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8b4-Wx-zxk">
+                                        <rect key="frame" x="0.0" y="523" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="6U9-2V-hU7"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tfc-Ux-YxP">
+                                        <rect key="frame" x="0.0" y="553" width="343" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="jsW-ck-QDm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVO-EA-VdR">
+                                        <rect key="frame" x="0.0" y="623" width="343" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="LpU-Pm-quG"/>
+                                            <constraint firstAttribute="width" constant="343" id="x2o-1p-5yk"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem tag="1" style="plain" systemItem="camera" id="WS7-a6-2C1">
+                                                <connections>
+                                                    <action selector="pickCamera:" destination="BYZ-38-t0r" id="osJ-2k-FTV"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="cZK-AY-Qwe"/>
+                                            <barButtonItem title="Album" id="fUG-8r-2u1">
+                                                <connections>
+                                                    <action selector="pickAlbum:" destination="BYZ-38-t0r" id="pko-tr-cMY"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="tVO-EA-VdR" firstAttribute="leading" secondItem="b9h-77-3qS" secondAttribute="leading" id="2Bs-Ri-wgY"/>
-                            <constraint firstItem="b9h-77-3qS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="DNF-hM-wDZ"/>
-                            <constraint firstItem="tVO-EA-VdR" firstAttribute="trailing" secondItem="b9h-77-3qS" secondAttribute="trailing" id="OMN-HX-K2S"/>
-                            <constraint firstItem="tVO-EA-VdR" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="SUQ-2f-TPY"/>
-                            <constraint firstItem="b9h-77-3qS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aAy-Ga-ZGH"/>
-                            <constraint firstItem="b9h-77-3qS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hfr-iW-ag4"/>
-                            <constraint firstItem="b9h-77-3qS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kiv-Oa-hhi"/>
-                            <constraint firstItem="tVO-EA-VdR" firstAttribute="top" secondItem="b9h-77-3qS" secondAttribute="bottom" id="zIW-UU-fEa"/>
+                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1mR-Xk-DwH"/>
+                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="TeW-D1-QsB"/>
+                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="hTD-k4-Rgy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qMM-TA-Ah4" secondAttribute="bottom" id="q2O-Pr-Toe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="albumButton" destination="fUG-8r-2u1" id="Il9-vN-FEC"/>
+                        <outlet property="bottomText" destination="8b4-Wx-zxk" id="Ru4-BT-S2t"/>
                         <outlet property="cameraButton" destination="WS7-a6-2C1" id="dUl-lT-1Jp"/>
                         <outlet property="imagePickerView" destination="b9h-77-3qS" id="q6d-5b-DRR"/>
                         <outlet property="toolBar" destination="tVO-EA-VdR" id="dLh-4h-njw"/>
+                        <outlet property="topText" destination="Hsx-3a-yrv" id="Xzn-BU-Pa8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1065" y="57"/>
+            <point key="canvasLocation" x="-1692" y="-1679.0104947526238"/>
         </scene>
     </scenes>
 </document>
