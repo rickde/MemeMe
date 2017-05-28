@@ -8,8 +8,12 @@
 
 import UIKit
 
+// MARK: Delegates
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,UITextFieldDelegate  {
+    
+// MARK: Outlets
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var toolBar: UIToolbar!
@@ -20,13 +24,38 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     @IBOutlet weak var bottomText: UITextField!
     
     
+// MARK: Textfield Perameters
     
+    let memeFormText = [NSStrokeColorAttributeName: UIColor.black,
+                        NSForegroundColorAttributeName: UIColor.white,
+                        NSStrokeWidthAttributeName: -5,
+                        NSKernAttributeName: 3,
+                        NSFontAttributeName: UIFont (name: "HelveticaNEUE-CondensedBlack",size: 28)!]
+                as [String: Any]
     
+ 
+    
+
+    
+// MARK: Set Initial View
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+
+        topText.text! = "TOP"
+        topText.defaultTextAttributes = memeFormText
+        topText.textAlignment = .center
+    
+    
+        
+        bottomText.text! = "BOTTOM"
+        bottomText.defaultTextAttributes = memeFormText
+        bottomText.textAlignment = .center
+        
+        
         
     }
     
