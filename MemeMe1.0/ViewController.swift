@@ -42,15 +42,12 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        shareButton.isEnabled = false
 
         topText.text! = "TOP"
         topText.defaultTextAttributes = memeFormText
         topText.textAlignment = .center
     
-    
-        
         bottomText.text! = "BOTTOM"
         bottomText.defaultTextAttributes = memeFormText
         bottomText.textAlignment = .center
