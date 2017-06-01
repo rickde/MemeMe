@@ -32,31 +32,33 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
                         NSKernAttributeName: 3,
                         NSFontAttributeName: UIFont (name: "HelveticaNEUE-CondensedBlack",size: 28)!]
                 as [String: Any]
-    
- 
-    
 
     
-// MARK: Set Initial View
+// MARK: Set Initial View Top and Bottom Formated Text
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         shareButton.isEnabled = false
+        imagePickerView.image = nil
 
         topText.text! = "TOP"
+        
         topText.defaultTextAttributes = memeFormText
         topText.textAlignment = .center
+        topText.delegate = self
     
         bottomText.text! = "BOTTOM"
+        
         bottomText.defaultTextAttributes = memeFormText
         bottomText.textAlignment = .center
-        
-        
-        
+        bottomText.delegate = self
+
     }
     
-
+    
+    
+// MARK: Camera and Album Button Actions
     
     @IBAction func pickCamera(_ sender: Any) {
         
@@ -70,6 +72,52 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     }
     
     
+// MARK: Setup Keyboard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+     
+     override func viewWillDisappear(_ animated: Bool) {
+     
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+     }
+     
+     func keyboardWillShow(_ notification:Notification) {
+     
+        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+     }
+    
+    func keyboardWillHide(_ notification:Notification) {
+        
+       //TODO:  view.frame.origin.y = 0 - getKeyboardHeight(notification)
+    }
+     
+     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+     
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+     }
+     
+     func subscribeToKeyboardNotifications() {
+     
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+        name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+        name: .UIKeyboardWillHide, object: nil)
+        
+     }
+     
+     func unsubscribeFromKeyboardNotifications() {
+     
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+    }
+
+
+// MARK: Image Picker Functions
     
    func pickImage(_ source: UIImagePickerControllerSourceType) {
         
@@ -79,7 +127,6 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
         present(imagePicker,animated: true, completion: nil)
     }
     
- //   @objc(imagePickerController:didFinishPickingMediaWithInfo:)
     
     func imagePickerController (_ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : Any]) {

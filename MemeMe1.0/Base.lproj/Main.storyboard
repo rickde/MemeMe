@@ -89,14 +89,14 @@
                         <outlet property="bottomText" destination="8b4-Wx-zxk" id="Ru4-BT-S2t"/>
                         <outlet property="cameraButton" destination="WS7-a6-2C1" id="dUl-lT-1Jp"/>
                         <outlet property="imagePickerView" destination="b9h-77-3qS" id="q6d-5b-DRR"/>
-                        <outlet property="shareButton" destination="maz-a7-WcA" id="c1R-cI-ZiR"/>
-                        <outlet property="toolBar" destination="tVO-EA-VdR" id="dLh-4h-njw"/>
+                        <outlet property="shareButton" destination="maz-a7-WcA" id="J7n-1g-pM0"/>
+                        <outlet property="toolBar" destination="tVO-EA-VdR" id="aHz-R4-joI"/>
                         <outlet property="topText" destination="Hsx-3a-yrv" id="Xzn-BU-Pa8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2452" y="-2002"/>
+            <point key="canvasLocation" x="-2636" y="-2019"/>
         </scene>
     </scenes>
 </document>
