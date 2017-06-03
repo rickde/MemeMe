@@ -61,7 +61,11 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="cZK-AY-Qwe"/>
-                                            <barButtonItem systemItem="action" id="maz-a7-WcA"/>
+                                            <barButtonItem systemItem="action" id="maz-a7-WcA">
+                                                <connections>
+                                                    <action selector="shareImage:" destination="BYZ-38-t0r" id="UYN-Gy-ydl"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Item" systemItem="flexibleSpace" id="o7f-mf-2lv"/>
                                             <barButtonItem title="Album" id="fUG-8r-2u1">
                                                 <connections>
@@ -96,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2636" y="-2019"/>
+            <point key="canvasLocation" x="-2710" y="-2013"/>
         </scene>
     </scenes>
 </document>

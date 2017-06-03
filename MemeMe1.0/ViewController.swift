@@ -129,10 +129,13 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
 
             topText.text = ""
             bottomText.text = ""
+            
+            shareButton.isEnabled = true
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        topText.resignFirstResponder()
         bottomText.resignFirstResponder()
         return true
     }
@@ -164,6 +167,53 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         dismiss(animated: true, completion: nil)
+    }
+    
+//MARK: Save Meme
+    
+    func saveMeme(_ memedImage: UIImage) {
+
+     _ = (topText: topText.text!, bottomText: bottomText.text!, originalImage:
+        imagePickerView.image!, memedImage: memedImage)
+    }
+    
+    
+    func generateMemedImage() -> UIImage {
+        
+        toolBar.isHidden = true
+    //    navigationBar.isHidden = true
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        toolBar.isHidden = false
+    //    navigationBar.isHidden = false
+        
+
+        
+        return memedImage
+        
+    }
+
+//MARK: Share Meme
+    
+    @IBAction func shareImage(_ sender: UIBarButtonItem) {
+        
+        let memedImage = generateMemedImage()
+        let activityController = UIActivityViewController(activityItems:
+            [memedImage], applicationActivities: nil)
+        
+        activityController.completionWithItemsHandler = {
+            activity, completed, items, error in if completed{
+                self.saveMeme(memedImage)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+        present(activityController, animated: true, completion: nil)
+        
     }
     
 }
