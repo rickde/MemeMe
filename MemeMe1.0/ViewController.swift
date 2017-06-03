@@ -105,7 +105,7 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     func keyboardWillHide(_ notification:Notification) {
         
         if bottomText.isFirstResponder && view.frame.origin.y != 0 {
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        view.frame.origin.y = 0
         }
     }
     
@@ -122,7 +122,20 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
         
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (topText.text == "TOP" || bottomText.text == "BOTTOM") {
 
+            topText.text = ""
+            bottomText.text = ""
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        bottomText.resignFirstResponder()
+        return true
+    }
 
 // MARK: Image Picker Functions
     
