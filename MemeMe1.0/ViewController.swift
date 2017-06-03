@@ -43,13 +43,11 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
         imagePickerView.image = nil
 
         topText.text! = "TOP"
-        
         topText.defaultTextAttributes = memeFormText
         topText.textAlignment = .center
         topText.delegate = self
     
         bottomText.text! = "BOTTOM"
-        
         bottomText.defaultTextAttributes = memeFormText
         bottomText.textAlignment = .center
         bottomText.delegate = self
@@ -76,44 +74,53 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-     
-     override func viewWillDisappear(_ animated: Bool) {
-     
-        super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
-     }
-     
-     func keyboardWillShow(_ notification:Notification) {
-     
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
-     }
-    
-    func keyboardWillHide(_ notification:Notification) {
+        subscribeToKeyboardNotifications()
         
-       //TODO:  view.frame.origin.y = 0 - getKeyboardHeight(notification)
     }
-     
-     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
-     
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.cgRectValue.height
-     }
-     
-     func subscribeToKeyboardNotifications() {
-     
+    
+    func subscribeToKeyboardNotifications() {
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
         name: .UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
         name: .UIKeyboardWillHide, object: nil)
-        
-     }
+    }
      
+     func keyboardWillShow(_ notification:Notification) {
+        
+        if bottomText.isFirstResponder && view.frame.origin.y == 0 {
+        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        }
+     }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func keyboardWillHide(_ notification:Notification) {
+        
+        if bottomText.isFirstResponder && view.frame.origin.y != 0 {
+        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
+    
+
      func unsubscribeFromKeyboardNotifications() {
      
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 
 
