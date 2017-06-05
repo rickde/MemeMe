@@ -22,6 +22,8 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     
 // MARK: Textfield Perameters
@@ -51,6 +53,8 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
         bottomText.defaultTextAttributes = memeFormText
         bottomText.textAlignment = .center
         bottomText.delegate = self
+        
+        imagePickerView.image = nil
 
     }
     
@@ -167,7 +171,17 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         dismiss(animated: true, completion: nil)
+        
     }
+    
+    
+//MARK: Cancel Button
+    
+   @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        viewDidLoad()
+    }
+    
+    
     
 //MARK: Save Meme
     
@@ -181,7 +195,7 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     func generateMemedImage() -> UIImage {
         
         toolBar.isHidden = true
-    //    navigationBar.isHidden = true
+        navigationBar.isHidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -189,17 +203,16 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
         UIGraphicsEndImageContext()
         
         toolBar.isHidden = false
-    //    navigationBar.isHidden = false
-        
-
+        navigationBar.isHidden = false
         
         return memedImage
         
     }
 
 //MARK: Share Meme
-    
+ 
     @IBAction func shareImage(_ sender: UIBarButtonItem) {
+
         
         let memedImage = generateMemedImage()
         let activityController = UIActivityViewController(activityItems:
@@ -212,10 +225,12 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
             }
         }
         
+
+        
         present(activityController, animated: true, completion: nil)
         
     }
-    
+ 
 }
 
 

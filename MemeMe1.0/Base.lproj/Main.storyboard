@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe1_0" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,50 +23,78 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qMM-TA-Ah4">
-                                <rect key="frame" x="20" y="20" width="335" height="627"/>
+                                <rect key="frame" x="16" y="28" width="343" height="631"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AAg-u5-o7Y" userLabel="Top Spacer">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="id5-UC-Gx9">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="yEv-bB-bPg"/>
+                                            <constraint firstAttribute="height" constant="44" id="8r3-On-Qhy"/>
+                                        </constraints>
+                                        <items>
+                                            <navigationItem title="MemeMe" id="syb-Ac-e6o">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="action" id="maz-a7-WcA">
+                                                    <connections>
+                                                        <action selector="shareImage:" destination="BYZ-38-t0r" id="Ovs-cX-IS6"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="PYg-Ge-1AB">
+                                                    <connections>
+                                                        <action selector="cancelAction:" destination="BYZ-38-t0r" id="Ifk-yB-fhT"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AAg-u5-o7Y" userLabel="Top Spacer">
+                                        <rect key="frame" x="0.0" y="44" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Pum-bC-Dvz"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hsx-3a-yrv">
-                                        <rect key="frame" x="0.0" y="70" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="94" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="NkQ-h0-DZa"/>
+                                            <constraint firstAttribute="width" constant="343" id="fvK-ed-nTU"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b9h-77-3qS">
-                                        <rect key="frame" x="0.0" y="100" width="335" height="383"/>
+                                        <rect key="frame" x="0.0" y="124" width="343" height="383"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="383" id="RGo-x6-AY0"/>
+                                        </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8b4-Wx-zxk">
-                                        <rect key="frame" x="0.0" y="483" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="507" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Bns-Yw-kUd"/>
+                                            <constraint firstAttribute="width" constant="343" id="EVS-T4-Fz2"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tfc-Ux-YxP" userLabel="Bottom Spacer">
-                                        <rect key="frame" x="0.0" y="513" width="335" height="70"/>
+                                        <rect key="frame" x="0.0" y="537" width="343" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="jsW-ck-QDm"/>
+                                            <constraint firstAttribute="height" constant="50" id="xFN-bf-TiK"/>
                                         </constraints>
                                     </imageView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVO-EA-VdR">
-                                        <rect key="frame" x="0.0" y="583" width="335" height="44"/>
+                                        <rect key="frame" x="0.0" y="587" width="343" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="PKN-Oe-49J"/>
+                                        </constraints>
                                         <items>
                                             <barButtonItem tag="1" style="plain" systemItem="camera" id="WS7-a6-2C1">
                                                 <connections>
                                                     <action selector="pickCamera:" destination="BYZ-38-t0r" id="osJ-2k-FTV"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="cZK-AY-Qwe"/>
-                                            <barButtonItem systemItem="action" id="maz-a7-WcA">
-                                                <connections>
-                                                    <action selector="shareImage:" destination="BYZ-38-t0r" id="UYN-Gy-ydl"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Item" systemItem="flexibleSpace" id="o7f-mf-2lv"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="fq8-DC-MhY"/>
                                             <barButtonItem title="Album" id="fUG-8r-2u1">
                                                 <connections>
                                                     <action selector="pickAlbum:" destination="BYZ-38-t0r" id="pko-tr-cMY"/>
@@ -75,32 +103,31 @@
                                         </items>
                                     </toolbar>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tVO-EA-VdR" secondAttribute="bottom" symbolic="YES" id="jI7-WG-QaO"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MxO-PX-Vpz"/>
-                            <constraint firstAttribute="bottom" secondItem="qMM-TA-Ah4" secondAttribute="bottom" constant="20" symbolic="YES" id="OdT-iA-osI"/>
-                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="SJe-g6-1S8"/>
-                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="fcI-n8-foU"/>
+                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ap2-FN-Snz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qMM-TA-Ah4" secondAttribute="bottom" constant="8" id="bga-Dv-yzz"/>
+                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ecF-WC-Fh0"/>
+                            <constraint firstItem="qMM-TA-Ah4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nlU-AP-vNh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="albumButton" destination="fUG-8r-2u1" id="Il9-vN-FEC"/>
                         <outlet property="bottomText" destination="8b4-Wx-zxk" id="Ru4-BT-S2t"/>
                         <outlet property="cameraButton" destination="WS7-a6-2C1" id="dUl-lT-1Jp"/>
+                        <outlet property="cancelButton" destination="PYg-Ge-1AB" id="NIK-Ka-o1F"/>
                         <outlet property="imagePickerView" destination="b9h-77-3qS" id="q6d-5b-DRR"/>
-                        <outlet property="shareButton" destination="maz-a7-WcA" id="J7n-1g-pM0"/>
+                        <outlet property="navigationBar" destination="id5-UC-Gx9" id="cxQ-jN-F90"/>
+                        <outlet property="shareButton" destination="maz-a7-WcA" id="04k-cx-lOU"/>
                         <outlet property="toolBar" destination="tVO-EA-VdR" id="aHz-R4-joI"/>
                         <outlet property="topText" destination="Hsx-3a-yrv" id="Xzn-BU-Pa8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2710" y="-2013"/>
+            <point key="canvasLocation" x="-5324" y="-2709.8950524737634"/>
         </scene>
     </scenes>
 </document>
