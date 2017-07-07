@@ -30,9 +30,9 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     
     let memeFormText = [NSStrokeColorAttributeName: UIColor.black,
                         NSForegroundColorAttributeName: UIColor.white,
-                        NSStrokeWidthAttributeName: -5,
+                        NSStrokeWidthAttributeName: -3,
                         NSKernAttributeName: 3,
-                        NSFontAttributeName: UIFont (name: "HelveticaNEUE-CondensedBlack",size: 28)!]
+                        NSFontAttributeName: UIFont (name: "HelveticaNEUE-CondensedBlack",size: 40)!]
                 as [String: Any]
 
     
@@ -131,8 +131,8 @@ UINavigationControllerDelegate,UITextFieldDelegate  {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (topText.text == "TOP" || bottomText.text == "BOTTOM") {
 
-            topText.text = ""
-            bottomText.text = ""
+            textField.text = ""
+           
             
             shareButton.isEnabled = true
         }

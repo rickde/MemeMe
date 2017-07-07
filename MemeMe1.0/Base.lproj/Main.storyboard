@@ -79,7 +79,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8b4-Wx-zxk">
-                                <rect key="frame" x="28" y="471.5" width="320" height="30"/>
+                                <rect key="frame" x="28" y="458.5" width="320" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Bns-Yw-kUd"/>
                                     <constraint firstAttribute="width" constant="320" id="EVS-T4-Fz2"/>
@@ -101,7 +101,7 @@
                             <constraint firstAttribute="trailing" secondItem="tVO-EA-VdR" secondAttribute="trailing" id="gCU-AH-J61"/>
                             <constraint firstItem="id5-UC-Gx9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lQX-cw-m7r"/>
                             <constraint firstItem="Hsx-3a-yrv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ojw-Vo-EeR"/>
-                            <constraint firstItem="8b4-Wx-zxk" firstAttribute="top" secondItem="b9h-77-3qS" secondAttribute="bottom" constant="-50" id="q0o-2z-27b"/>
+                            <constraint firstItem="8b4-Wx-zxk" firstAttribute="top" secondItem="b9h-77-3qS" secondAttribute="bottom" constant="-63" id="q0o-2z-27b"/>
                             <constraint firstItem="b9h-77-3qS" firstAttribute="top" secondItem="Hsx-3a-yrv" secondAttribute="bottom" constant="-50" id="tMV-dX-G3k"/>
                         </constraints>
                     </view>
